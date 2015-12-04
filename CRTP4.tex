@@ -1,0 +1,300 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc} % pour écrire en français
+\usepackage[francais]{babel} %pour écrire en français
+\usepackage[utf8x]{inputenc} %encodage en UTF-8
+\usepackage{fancyhdr} %pour gérer les en-têtes et pieds de page
+\usepackage{amsmath,amscd,amssymb} %pour insérer des expressions scientifiques
+\usepackage[pdftex]{graphicx} %pour inclure des figures
+\usepackage{subfig}
+\usepackage{hyperref} %pour créer des liens hyper-textes
+\usepackage{verbatim} %pour citer du code Latex ou autre
+\usepackage{url} %pour citer une adresse web
+\pagenumbering{arabic} %type de numérotation des pages
+\graphicspath{{Figures/}} %les figures sont rangées dans le dossier Figures
+\pagestyle{plain} %style des pages
+\usepackage{chngpage}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------------------------
+%				PAGE DE GARDE
+%----------------------------------------------------------------------------------------------------------
+
+\title{Mesure du coefficient de réflexion par la méthode du tube de Kundt}
+\author{Qu Shilin, François Fabre}
+\date{Année universitaire :  2015-2016}
+
+
+\begin{document}
+\maketitle
+\newpage
+
+\pagenumbering{roman} \setcounter{page}{1}
+
+\section{Schéma du ooo}
+Ci-dessous le schéma du montage réalisé au cours de cette expérience dans le cadre de la mesure du module et de la phase du coefficient de réflexion d'un matériau par la méthode du tube de Kundt :
+\begin{figure}[h]
+\includegraphics[scale=0.6]{schema_montage.png}
+\caption{Schéma du montage}
+\end{figure}
+
+\section{Objectif}
+
+
+
+\section{Questions préliminaires}
+
+(1)*L'évolution de la pression P, en fonction de l'espace et de la fonction de la fréquence, dans le cas d'une onde stationnaire s'écrit :
+$$p(x,\omega) = Ae^{-jkx} + Be^{jkx}$$
+Où A et B sont des complexes tels que : $B = AR_{p}$ avec $R_{p} =|R_{p}|e^{j\phi}$ : le coefficient de réflexion de la paroi fermée du tube.
+\newline
+Donc :
+\begin{align*}
+p(x,\omega) &= A(e^{-jkx} + R_{p}e^{jkx}) \\
+			&= A(e^{-jkx} + |R_{p}|e^{j(kx+\phi)}) \\
+			&= Ae^{\frac{\phi}{2}}(e^{-j(kx+\frac{\phi}{2})} + |R_{p}|e^{j(kx+\frac{\phi}{2}}) \\
+			&= Ae^{\frac{\phi}{2}}((1-|R_{p}|)e^{-j(kx+\frac{\phi}{2})} + 2|R_{p}|cos(kx+\frac{\phi}{2}))
+\end{align*}
+\newline
+Or $p(x,\omega)$ est maximale pour $kx+\frac{\phi}{2} = n \pi$ c'est-à-dire : 
+\newline
+\begin{align*}
+|p_{max}(x,\omega)| &= |Ae^{\frac{\phi}{2}}((1-|R_{p}|)e^{-jn \pi} + 2|R_{p}|cos(n \pi))| \\
+			      &= |A|((1-|R_{p}|)+ 2|R_{p}|) \\
+			      &= |A|(1+ |R_{p}|)
+\end{align*}
+\newline
+De même $p(x,\omega)$ est minimale pour $kx+\frac{\phi}{2} = n \pi +   \frac{\pi}{2}$ c'est-à-dire : 
+\newline
+\begin{align*}
+|p_{min}(x,\omega)| &= |Ae^{\frac{\phi}{2}}((1-|R_{p}|)e^{-j(n \pi +\frac{\pi}{2})} + 2|R_{p}|cos(n \pi +\frac{\pi}{2}))| \\
+			      &= |A|(1 - |R_{p}|)
+\end{align*}
+\newline
+Par conséquent, le Taux d'Ondes Stationnaires vaut : $$TOS = |\frac{p_{max}}{p_{min}}| = \frac{1+ |R_{p}|}{1 - |R_{p}|} $$
+\newline
+Dans cette expérience, nous utilisons une autre définition du TOS qui est : $$TOS = |\frac{p_{min}}{p_{max}}| = \frac{1- |R_{p}|}{1 + |R_{p}|} $$
+Donc $$|R_{p}| = \frac{1-TOS}{1+TOS}$$
+\newline
+\newline
+\newline
+
+(2)*Le tube considéré ici est un guide d'onde fermé par une par une paroi rigide en x=0 et dont l'exrémité en x=L peut être considérée comme ouverte.
+
+Montrez que, por une fréquence donnée, la distance du premier noeud de pression à la surface de l'échantillon permet d'obtenir la phase $\phi$ du coefficient de réflexion |$R_{p}$|.
+
+\begin{align*}
+  R_{p} &= |R_{p}|{e^{j \phi}}\\
+        &= \frac{p_{r}(\omega, x=0)}{p_{i}(\omega, x=0)}\\
+        &= \frac{\widehat{B}}{\widehat{A}}=\frac{Be^{j {\phi}^{-}}}{Ae^{j {\phi}^{+}}}\\
+        &= \frac{B}{A} e^{j ({\phi}^{-}-{\phi}^{+})}\\
+\end{align*}        
+
+on a donc, $$|R_{p}|{e^{j \phi}}=\frac{B}{A} e^{j ({\phi}^{-}-{\phi}^{+})}$$  
+   
+donc ,  $$\boxed{\phi = {\phi}^{-}-{\phi}^{+}}$$
+
+pour une onde stationnairem, la pression d'onde s'écrit sous forme:
+
+$$\widehat{p}(x,\omega) = 2|A|e^{j {\bar{\phi}}} cos(kx + \Delta \phi) $$
+
+avec $$\Delta \phi = \frac{{\phi}^{+}-{\phi}^{-}}{2} et \bar{\phi} = \frac{{\phi}^{+}+{\phi}^{-}}{2}$$
+
+sachant que le noeud de pression est le point sur lequel la pression est nulle, donc:
+
+
+$$\widehat{p}(x,\omega) = 2|A|e^{j {\bar{\phi}}} cos(kx + \Delta \phi)=0$$
+
+comme $2|A|e^{j {\bar{\phi}}}$ est une constante différente de 0, donc $cos(kx + \Delta \phi)=0$
+
+donc, 
+
+\begin{align*}
+kx + \Delta \phi &= n \pi + \frac{\pi}{2} \\
+   - \Delta \phi &= kx-n \pi-\frac{\pi}{2} \\
+   {\phi}^{+}-{\phi}^{-} &= 2kx-2n \pi- \pi \\
+   -\phi &= 2kx-(2n+1) \pi \\
+   \phi &= (2n+1) \pi-2kx \\
+\end{align*}
+
+Dans cette expérience, comme l'origine commence par l'extrémité feermée alors que dans la démonstration ci-dessus l'origine commence par l'extrémité ouverte, le résultat de $\phi$ est donc l'opposé de ce qu'on a obtenu précédemment, c'est-à-dire que 
+$\phi = 2kx-(2n+1) \pi $. Comme on considère le premier noeud de pression, n est donc égal à 0. 
+
+donc,
+$$\boxed{\phi = \frac{4 \pi Fx}{c} - \pi}$$ avec F la fréquence du signal émis.
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+
+(3)Quel est la fréquence la plus basse pour laquelle la mesure de la phase $\phi$ et donc du coefficient $R_{p}$ est possible?
+
+Le schéma ci-dessous représente la distribution de pression le long du tube pour différentes longueurs d'ondes. On peut voir que quand $\lambda > 4L$ le premier noeud de pression est hors du tube, $\lambda < 4L$ le premier noeud de pression est dans le tube. Donc la fréquence la plus basse est telle que sa longeur d'onde $\lambda = 4L$, c'est à dire $f = \frac{c}{4L}$
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{qs3.png}
+\caption{Représentation de la distribution de pression le long du tube pour différentes longueurs d'ondes}
+\end{figure}
+.
+\newpage
+
+\section{Mesure}
+
+\subsection{Mesure du coefficient de réflexion en l'abscence de matériau}
+Ci-dessous un tableau représentant l'amplitude $A_{max}$ de l'onde sur un ventre, l'amplitude $A_{min}$ de l'onde sur un noeud, la position $x_{1}$ du premier noeud de pression par rapport au porte échantillon ainsi que le Taux d'Ondes Stationnaires $TOS = \frac{A_{min}}{A_{max}}$ et la phase $\phi$ du coefficient de réflexion, pour différentes fréquences allant de la fréquence la plus basse permettent ces mesures à 5440 Hz.
+
+\begin{table}[!hbp]
+\begin{adjustwidth}{-1.8cm}{-1cm}
+\begin{tabular}{|C{2.3cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|}
+\hline Fréquence(Hz) & 85 & 170 & 340 & 680 & 1360 & 2720 & 5440 \\
+\hline $A_{max}$(V) & 95 & 40.8 & 24.8 & 0.715 & 0.31 & 1.76 & 1.30 \\
+\hline $A_{min}$(V) & 5.6 & 0.5 & 0.256 & 0.040 & 0.020 & 0.019 & 0.009 \\
+\hline TOS & 0.059 & 0.0123 & 0.0103 & 0.0560 & 0.0645 & 0.0108 & 0.0070 \\
+\hline $x_{1}$(m) & 1 & 0.52 & 0.267 & 0.15 & 0.077 & 0.035 & 0.019 \\
+\hline $\phi$(rad) & 0 & 0.126 & 0.214 & 0.628 & 0.729 & 0.377 & 0.679 \\
+\hline
+\end{tabular}
+\end{adjustwidth}
+\caption{}{Module et la Phase du coefficient de réflexion suivant la fréquence}
+\end{table}
+
+.
+\newline
+\newline
+
+Les valeurs du module sont représentés sur le graphique suivant:
+
+\begin{figure}[h]
+\begin{adjustwidth}{+1cm}{-1cm}
+\includegraphics[scale=0.52]{Rsansmousse}
+\end{adjustwidth}
+\end{figure}
+.
+\newline
+
+On observe sur la courbe du module du coefficient de réflexion que ce dernier varie entre 0.88 et 0.99 ce qui implique que l'extrémité du tube en l'absence de mousse est très réfléchissante étant donné qu'un coefficient de réflexion égal à 1 signifie que le matériau est parfaitement réfléchissant.
+\newline
+\newline
+Les deux graphiques qui suivent représentent en rouge la phase du coefficient de reflexion mesurée expérimentalement et en bleu la même phase, à l'exception de la valeur à la fréquence 5440 Hz pour laquelle la position mesurée du noeud est diminuée de 2 mm.
+
+\begin{figure}[h]
+\begin{adjustwidth}{-0cm}{ 0cm}
+\includegraphics[scale=0.3]{phase_sans_mousse.png}  \includegraphics[scale=0.365]{phase_sans_mousse2.png}
+\end{adjustwidth}
+\end{figure}
+
+
+On peut remarquer sur la courbe rouge, qui représente la différence des phases entre l'onde incidente et l'onde réfléchie, que la phase augmente de façon importante entre 85 Hz et 1360 Hz puis décroît entre 1360 Hz et 2720 Hz avant de remonter.Cependant, celle-ci ne varie qu'entre 0 et 0.7 rad ce qui est en accord avec la théorie car $\phi = \frac{4\pi F x_{1}}{c} - \pi$, et théoriquement $x_{1} = \frac{\lambda}{4}$ on obtient donc : $\phi = 0$. 
+\newline
+La forme de la courbe suggère que la paroi fermé du toyau est plus réfléchissante en très basses fréquences ainsi qu'à 2720 Hz. Or si l'on compare avec la courbe obtenue pour le module, on peut voir que la paroi est plus réfléchissante à 5440 Hz qu'à 2720 Hz ce qui contredit la forme de la courbe rouge.
+\newline
+De plus, si l'on compare avec la courbe bleue, pour laquelle la position mesurée du noeud à 2720 Hz est augmentée de 3 mm, on observe que contrairement à la courbe rouge celle-ci semble rester à peu près constante à partir de 1360 Hz.
+Ceci suggère que le fait qu'elle augmente entre 2720 Hz et 5440 Hz est probablement dû aux erreurs de mesures sur la position du premier noeud, induites par les interférences liées au signal éléctrique qui alimente le GBF.
+\newline
+\newline
+\newline
+\newline
+\newline
+Les mesures du module et de la phase du coefficient de réflexion de la paroi fermé du tube permettent ainsi de déduire que celle-ci est très réfléchissante et que les fréquences pour lesquelles elle l'est le moins sont celles entre 680 Hz et environ$^1$ 2000 Hz.
+\newline
+$^1$étant donné les écarts fréquentielles entre chaque mesure.
+\newline
+\newline
+
+
+\subsection{Mesure du coefficient de réflexion avec mousse}
+
+Ci-dessous est le tableau qui contient des données de la position du premier noeud de pression, le coefficient de réflexion et la phase du coefficient de réflexion quand on met une mousse au bout du tube de Kundt.
+
+\begin{table}[!hbp]
+\begin{adjustwidth}{-2cm}{-1cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Fréquence(Hz) & 85 & 585 & 1085 & 1585 & 2085 & 2585 & 3085 & 3585 & 4085\\
+\hline 
+$A_{max}$(V) & 103 & 11 & 0.258 & 1.01 & 1.28 & 4.24 & 1.63 & 0.40 & 1.65\\
+\hline
+$A_{min}$(V) & 5.5 & 0.376 & 0.015 & 0.102 & 0.212 & 1.06 & 0.66 & 0.228 & 1.28\\
+\hline
+$x_{1}$(m) & 1.000 & 0.163 & 0.092 & 0.053 & 0.050 & 0.042 & 0.036 & 0.031 & 0.007\\
+\hline
+TOS & 0.0534 & 0.0341 & 0.0581 & 0.1010 & 0.1656 & 0.2500 & 0.4049 & 0.5700 & 0.7758\\
+\hline
+$|R_{p}|$ & 0.8986 & 0.9340 & 0.8902 & 0.8165 & 0.7159 &0.6000 & 0.4236 & 0.2739 & 0.1263\\
+\hline
+$\phi$(rad) & 0.0000 & 0.3827 & 0.5477 & -0.0368 & 0.7114 & 0.8711 & 0.9632 & 0.9659 & -2.0847\\
+\hline
+\end{tabular}
+\caption{Calcul de $\phi$ et $|R_{p}|$ en fonction des pressions et de la position du premier noeud de pression pour différentes fréquences}
+\end{adjustwidth}
+\end{table}
+.
+\newpage
+
+En nous basant sur la figure ci-dessous, on peut bien voir que $\alpha$ est proportionnel à la fréquence, c'est-à-dire que la mousse qu'on utilise absorbe plus de l'énergie en haute fréquence alors elle absorbe très peu de l'énergie en basse fréquence.
+
+\begin{figure}[h]
+\centering
+\begin{tabular}{cc}
+ \includegraphics[width=12cm]{alphamousse}\\
+\end{tabular}
+\caption{Représentation du coefficient d'arbsorption $\alpha$ de la mousse utilisée pour différentes fréquences}
+\end{figure}
+
+
+Pour la mesure de la phase de $|R_{p}|$, on a arrêté à 4085Hz parce qu'à cette fréquence-là, la position du premier noeud de pression est de 0.0007mètre, qui est pratiquement à la surface de l'échantillon de mousse. Si on continuait à augmenter la fréquence, la position du premier noeud de pression serait une valeur négative, c'est-à-dire que le premier noeud de pression est dans l'échantillon de mousse. 
+
+La figure ci-dessous montre que la phase de $|R_{p}|$ est proportionnel à la fréquence à part celles pour 2585Hz et 4085Hz. On a deux creux évidents sur ces deux fréquences. Le creu sur 2585Hz est due à l'interférence du courant alternatif sur l'oscilloscope, dans ce cas-là, l'onde qu'on oberve sur l'oscilloscope n'est plus une onde stationnaire, c'est une onde dont proche de l'onde stationnaire dont l'amplitude change tout le temps, par conséquent, on ne peut pas onbtenir une valeur précise pour la position du premier noeud de pression. D'après la deuxième question préliminaire, comme la phase de $|R_{p}|$ est reliée à la position du premier noeud de pression, la phase qu'on a obtenu est donc peut-être fausse. 
+
+Alors que le creu sur 4085Hz est à cause de la position du microphone, car la position du premier noeud de pression à partir de est situé à 0.0007mètre. Comme on dirige le microphone à la main, il y a donc fortement une incertitude de la position du premier noeud de pression, la phase qu'on a obtenu est donc peut-être aussi fausse.
+
+\begin{figure}[h]
+\centering
+\begin{tabular}{cc}
+ \includegraphics[width=12cm]{phimousse}\\
+\end{tabular}
+\caption{Représentation de la phase du coefficient de réflexion $\alpha$ de la mousse utilisée pour différentes fréquences}
+\end{figure}
+
+
+Supposons qu'on est dans le cas idéal où les deux phase en 2585Hz et 4085Hz sont respectivement 0.6368rad et 0.9847rad, on aura la figure ci-dessous qui montre que la phase de $|R_{p}|$ est proportionnelle à la fréquence. Cela indique que les ondes de haute fréquence se réfléchissent plus longtemps dans les cavités de mousse que les ondes en basse fréquence. On peut aussi dire que  la réflexion des ondes en haute fréquence est plus complexe que celle des ondes en basse fréquence.
+
+
+
+\begin{figure}
+\centering
+\begin{tabular}{cc}
+ \includegraphics[width=12cm]{phimousse2}\\
+\end{tabular}
+\caption{Représentation de la phase du coefficient de réflexion $\alpha$ de la mousse utilisée pour différentes fréquences}
+\end{figure}
+
+\newpage
+
+En nous basant sur le tableau et les trois figures ci-dessus, on peut trouver un lien entre le coefficient d'absorption et la phase de $|R_{p}|$: 
+Quand on passe en basse fréquence, d'après la figure1, on peut constater que  la mousse qu'on utilise absorbe moins de l'énergie qu'en haute fréquence. Comme l'énergie du son peut aussi être représentée par la complexité de réflexion du son dans les cavité de mousse, on peut donc dire que  les ondes de haute fréquence se réfléchissent plus longtemps dans les cavités de mousse que les ondes en basse fréquence. On peut aussi dire que la réflexion des ondes en haute fréquence est plus complexe que celle des ondes en basse fréquence.
+Donc, plus le coefficient d'absorption est grand, plus la phase de $|R_{p}|$ est grande.    
+\newpage
+
+\section{Conclusion}
+
+Pendant ce TP, on a mesuré le coefficient d'absorption ainsi que le coefficient de réflexion et sa phase par la méthode du tube de Kundt. La phase du coefficient de réflexion ne varie qu'entre 0 et 0.7 rad ce qui est en accord avec la théorie. La forme de la courbe de $|R_{p}|$ suggère que la paroi fermé du toyau est plus réfléchissante en très basses fréquences ainsi qu'à partir de 2720 Hz.
+\newline
+Les erreurs de mesures sur la position du premier noeud sont problement induites par les interférences liées au signal éléctrique qui alimente le GBF.
+\newline
+\newline
+Pour la mesure avec mousse, on peut constater que $\alpha$ est proportionnel à la fréquence, c'est-à-dire que la mousse qu'on utilise absorbe plus de l'énergie en haute fréquence alors elle absorbe très peu de l'énergie en basse fréquence.D'après la mesure de la phase de $|R_{p}|$, on peut dire que quand on passe en basse fréquence, la mousse qu'on utilise absorbe moins de l'énergie qu'en haute fréquence. Comme l'énergie du son peut aussi être représentée par la complexité de réflexion du son dans les cavité de mousse, on peut donc dire que  les ondes de haute fréquence se réfléchissent plus longtemps dans les cavités de mousse que les ondes en basse fréquence. On peut aussi dire que la réflexion des ondes en haute fréquence est plus complexe que celle des ondes en basse fréquence.
+Donc, plus le coefficient d'absorption est grand, plus la phase de $|R_{p}|$ est grande.    
+
+ 
+\end{document}
+
+
+
